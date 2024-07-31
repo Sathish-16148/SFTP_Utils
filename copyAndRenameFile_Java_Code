@@ -1,0 +1,13 @@
+	public static void copyAndRenameFile(String sourcePath, String targetFolder, String newFileName) {
+		try {
+			Path source = Path.of(sourcePath);
+			Path targetDir = Path.of(targetFolder);
+			// Resolve the new file path in the target folder with the new file name
+			Path target = targetDir.resolve(newFileName);
+			// Copy the file to the target folder with the new name
+			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+			System.out.println("File copied and renamed successfully!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
